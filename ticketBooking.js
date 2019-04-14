@@ -17,15 +17,9 @@ let movie_show = theatre.check_movie();
 
 console.log("\n MOVIE",movie_show)
 
- //   check_availability = theatre.checkAvailability(movie_show)
-
-  //  check_tick = theatre.check_tickets(movie_show);
-
     let person_id = theatre.rand_perosn_id(movie_show);
 
     console.log("PERSON ID",person_id)
-
-    // console.log("on sample tickets",check_tick)
 
     let tickets = theatre.generate_tickets(movie_show);
 
@@ -38,14 +32,5 @@ console.log("\n MOVIE",movie_show)
     theatre.hash_ticket(tickets);
 
     ticket_register();
-
-    // availability = theatre.checkAvailability(check_tick,movie_show);
-
-    // console.log("===============AVAILABILITY FOR "+movie_show+" ============= IS >>>>>>>>>>>",availability)
-
-    // if(availability > 0)
-    // {
-        
-    // }
 
 }
