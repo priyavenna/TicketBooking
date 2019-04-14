@@ -42,6 +42,10 @@ exports.movie_name = "";
 
 exports.number_tickets = 0;
 
+//This function takes Movie Name, selected show & number of tickets as input from user 
+
+//Checks if tickets are available, if not displays "NO AVAILABILITY" & again starts the process for movie selection
+
 module.exports.check_movie = function check_movie()
 {
     console.log("MOVIES PLAYING NOW")
@@ -358,62 +362,11 @@ module.exports.check_movie = function check_movie()
 
     let mov_show = { movie_name, tick_quantity ,show}
     
-    return mov_show
+    return mov_show 
 
 }
 
-// module.exports.check_tickets = function check_tickets(movie_show)
-// {
-//     console.log(movie_show.movie_name)
-
-//     console.log(movie_show.aval_tickets)
-
-
-
-//     console.log("Plese enter number of tickets for : ")
-
-//     number_tickets = scanf("%d")
-
-//     console.log("Entered number of tickets :",number_tickets)
-
-//     let movie_name = movie_show.movie_name;
-
-//     let avail_tickets = movie_show.aval_tickets
-
-//     if(movie_name == "SUPERWOMAN")
-//     {
-//         if(aval_tickets < number_tickets)
-//         {
-//             console.log("sorry no availability")
-//         } 
-//     }
-//     else if(movie_name == "CAPTAIN MARVEL")
-//     {
-//         aval_tickets = aval_tickets_2
-//     }
-//     else if(movie_name == "AVENGERS")
-//     {
-//         aval_tickets = aval_tickets_3
-//     }
-//     else if(movie_name == "AQUAMAN")
-//     {
-//         aval_tickets = aval_tickets_4
-//     }
-//     else if(movie_name == "DUMBO")
-//     {
-//         aval_tickets = aval_tickets_5
-//     }
-//     console.log("Aval tickets",aval_tickets)
-
-//     if(number_tickets > aval_tickets)
-//     {
-//         console.log("Sorry only "+aval_tickets+" are available")
-
-//         check_tickets();
-//     }
-
-//     return number_tickets
-// }
+//This function generates a unique person id and pushes it into an array
 
 module.exports.rand_perosn_id = function rand_perosn_id(movie_show)
 {
@@ -436,6 +389,8 @@ module.exports.rand_perosn_id = function rand_perosn_id(movie_show)
     return random_person
     
 };
+
+//This function generates number of tickets requested by user and checks if they are unique and stores in array
 
 module.exports.generate_tickets = function generate_tickets(movie_show)
 
@@ -475,6 +430,8 @@ module.exports.generate_tickets = function generate_tickets(movie_show)
 
 };
 
+// This function allocates tickets
+
 module.exports.assign_ticket = function assign_ticket(person_id, tickets, movie_show)
 {
 
@@ -499,6 +456,8 @@ module.exports.assign_ticket = function assign_ticket(person_id, tickets, movie_
     return movie
 }
 
+// This function performs hash of the tickets generated and stores in a file 
+
 module.exports.hash_ticket = function hash_ticket(ticket)
 {
     console.log("hash to be done for ",ticket)
@@ -512,51 +471,3 @@ module.exports.hash_ticket = function hash_ticket(ticket)
     fs.appendFileSync('ticketinfo.txt',counter_one_tickets,'utf-8');
 
 }
-
-
-module.exports.checkAvailability = function check_aval_tickets(tickets, movie_name)
-{
-    console.log("======== TICKET AVAILABILITY FOR SUPER WOMAN =======",aval_tickets_1)
-   
-    console.log("======== TICKET AVAILABILITY FOR CAPTAIN MARVEL =======",aval_tickets_2)
-   
-    console.log("======== TICKET AVAILABILITY FOR AVENGERS =======",aval_tickets_3)
-
-    console.log("======== TICKET AVAILABILITY FOR AQUAMAN =======",aval_tickets_4)
-
-    console.log("======== TICKET AVAILABILITY FOR DUMBO =======",aval_tickets_5)
-    
-    if(movie_name == "SUPERWOMAN")
-    {
-         aval_tickets_1 -= tickets
-         return aval_tickets_1
-    }
-    else if(movie_name == "CAPTAIN MARVEL")
-    {
-        aval_tickets_2 -= tickets
-        return aval_tickets_2
-
-    }
-    else if(movie_name == "AVENGERS")
-    {
-        aval_tickets_3 = tickets
-        return aval_tickets_3
-    }
-    else if(movie_name == "AQUAMAN")
-    {
-        aval_tickets_4 = tickets
-        return aval_tickets_4
-    }
-    else if(movie_name == "DUMBO")
-    {
-        aval_tickets_5 = tickets
-        return aval_tickets_5
-    }
-   
-
-
-
-    
-}
-
-
